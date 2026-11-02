@@ -1,16 +1,7 @@
-[
-{
-  "modid": "sonicvisuals",
-  "name": "Enhanced Visuals",
-  "description": "Experience realism and extra video effects for your in-game experience.",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "url": "",
-  "updateUrl": "",
-  "authorList": ["Sonicjumper"],
-  "credits": "Authored by Sonicjumper",
-  "logoFile": "",
-  "screenshots": [],
-  "dependencies": []
-}
-]
+[{
+  "modid": "${modId}", "name": "Enhanced Visuals Legacy", "version": "${modVersion}",
+  "mcversion": "${minecraftVersion}", "description": "Configurable damage, explosion and environmental screen effects.",
+  "url": "https://github.com/AngelicIndustries/EnhancedVisualsLegacy", "authorList": ["Angelic Industries"],
+  "credits": "Sonicjumper, CreativeMD and contributors",
+  "logoFile": "assets/sonicvisuals/logo.png"
+}]

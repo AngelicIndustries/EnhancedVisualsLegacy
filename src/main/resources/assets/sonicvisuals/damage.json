@@ -1,0 +1,65 @@
+{
+  "_help": [
+    "Which marks a hit leaves on your screen.",
+    "",
+    "Rule conditions. Leave one out to match anything; a list matches any of its entries.",
+    "  damage:   damage type, such as mob, player, arrow, cactus, fall, drown, onFire, lava, magic, wither, or a modded type.",
+    "  entity:   what hit you directly: the mob in melee, the arrow or fireball for ranged attacks.",
+    "  attacker: who is responsible: the mob in melee, the skeleton that shot the arrow, the witch that threw the potion.",
+    "            For entity and attacker: a registered entity name (Zombie also covers subclasses such as PigZombie),",
+    "            Player, a full class name, @living, @projectile, or @none.",
+    "  weapon:   the item held by what hit you in melee. An item name such as minecraft:iron_sword, or @sword, @axe,",
+    "            @pickaxe, @shovel, @hoe, @bow, @arrow, @any, or @none for empty hands.",
+    "  projectile, fire, explosion, magic, unblockable, absolute: true or false to require that property of the damage.",
+    "            These catch modded damage too, whatever its type is called.",
+    "",
+    "When several rules match, the most specific one wins: a rule that checks more things beats one that checks fewer,",
+    "an exact entity or item beats a group such as @sword or @living, and a subclass beats its parent.",
+    "Ties go to the rule listed first. So { damage: magic, attacker: Witch } beats { magic: true }.",
+    "",
+    "Rule results:",
+    "  mark:   a set of marks from below, or none for no marks at all.",
+    "  color:  RRGGBB tint. Without it, blood marks use the bloodColor setting and other marks their own color.",
+    "  amount: multiplier for the number of marks (one per point of damage). max: most marks from one hit.",
+    "",
+    "Marks are texture folders, assets/sonicvisuals/DefaultTheme/visuals/Splat/<name>, listed in visuals.txt, so",
+    "resource packs can add new ones. Blood marks use the blood color and count toward persistent blood.",
+    "  size: smallest and largest size as a fraction of the screen. stretch: width to height ratio. life: ticks on screen.",
+    "",
+    "/evtest log prints every hit's damage type, entity, attacker, weapon and the mark it got.",
+    "Changes apply after F3+T or /evtest reload."
+  ],
+  "marks": {
+    "splatter": { "blood": true },
+    "slash": { "blood": true, "stretch": 1.6 },
+    "impact": { "blood": true },
+    "pierce": { "blood": true, "size": [0.2, 0.38] },
+    "fire": { "color": "2B2B2B", "life": 100 },
+    "water": { "life": 80 },
+    "dust": { "color": "888888", "life": 160 },
+    "sand": { "life": 120 },
+    "snow": { "life": 100 }
+  },
+  "rules": [
+    { "mark": "splatter", "max": 20 },
+
+    { "explosion": true, "mark": "none" },
+    { "damage": ["drown", "starve", "outOfWorld"], "mark": "none" },
+    { "fire": true, "mark": "fire" },
+    { "magic": true, "mark": "splatter", "color": "4E9331" },
+    { "damage": "wither", "mark": "splatter", "color": "1A1A1A" },
+    { "damage": ["cactus", "thorns"], "mark": "pierce" },
+    { "damage": ["fall", "inWall", "anvil", "fallingBlock"], "mark": "impact" },
+
+    { "projectile": true, "mark": "pierce" },
+    { "entity": "@living", "mark": "splatter", "max": 20 },
+    { "entity": ["Zombie", "Skeleton", "Ozelot"], "mark": "slash" },
+    { "entity": ["net.minecraft.entity.monster.EntityGolem", "Player"], "mark": "impact" },
+    { "entity": ["Wolf", "Spider"], "mark": "pierce" },
+
+    { "weapon": "@any", "mark": "splatter" },
+    { "weapon": ["@sword", "@axe"], "mark": "slash" },
+    { "weapon": ["@pickaxe", "@shovel"], "mark": "impact" },
+    { "weapon": ["@hoe", "@arrow"], "mark": "pierce" }
+  ]
+}

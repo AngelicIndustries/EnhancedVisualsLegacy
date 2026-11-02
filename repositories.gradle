@@ -1,0 +1,27 @@
+// Add any additional repositories for your dependencies here.
+
+repositories {
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Angelic GitHub releases"
+                url "https://maven.angelic.industries/github/"
+            }
+        }
+        filter {
+            includeModule("AngelicIndustries", "BlurLegacy")
+            includeModule("AngelicIndustries", "Psychedelicraft-Legacy")
+            includeModule("AngelicIndustries", "Sound-Physics")
+            includeModule("AngelicIndustries", "MAtmos")
+            includeModule("mist475", "DynamicSurroundings")
+        }
+    }
+    maven {
+        name = "Angelic Maven"
+        url "https://maven.angelic.industries/releases"
+    }
+    maven {
+        name = "FalsePattern Releases"
+        url "https://mvn.falsepattern.com/releases"
+    }
+}

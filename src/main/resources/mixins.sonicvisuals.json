@@ -1,0 +1,8 @@
+{
+  "required": true,
+  "minVersion": "0.8.7-GTNH",
+  "package": "com.sonicjumper.enhancedvisuals.mixins",
+  "refmap": "mixins.sonicvisuals.refmap.json",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [], "client": [], "server": []
+}
