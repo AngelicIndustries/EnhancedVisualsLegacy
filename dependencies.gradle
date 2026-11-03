@@ -17,7 +17,7 @@ dependencies {
     runtimeOnlyNonPublishable("AngelicIndustries:Psychedelicraft-Legacy:12f7ccb-snapshot:dev")
     runtimeOnlyNonPublishable(rfg.deobf("curse.maven:ivtoolkit-224535:2294442"))
     // The pack's sound mods; Sound Physics also muffles sounds for explosions and drowning.
-    runtimeOnlyNonPublishable("AngelicIndustries:Sound-Physics:19fd28d-snapshot:dev")
+    runtimeOnlyNonPublishable("AngelicIndustries:Sound-Physics:4b9e6e8-snapshot:dev")
     runtimeOnlyNonPublishable("AngelicIndustries:MAtmos:baeedb4-snapshot:dev")
     runtimeOnlyNonPublishable("mist475:DynamicSurroundings:1.0.9.0:dev")
     runtimeOnlyNonPublishable("industries.angelic.vintageresourcify:VintageResourcify:3f36446-snapshot:dev") {
